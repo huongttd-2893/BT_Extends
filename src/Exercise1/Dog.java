@@ -24,7 +24,7 @@ public class Dog extends Animal{
 			this.color = color;
 			this.height = height;
 		}
-		public void display_Dog() {
+		public void displayDog() {
 			System.out.println("Tên: " +getName()+ " - Tuổi: " +getAge()+ " - Giới tính: "+getGender()+ " - Màu: " +color +" - Trọng lượng: "+height);
 		
 		}

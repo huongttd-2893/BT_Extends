@@ -6,13 +6,13 @@ public class Cat extends Animal{
 		super(name, age, gender);
 
 	}
-	private String feather_color;
+	private String featherColor;
 	private float width;
-	public String getFeather_color() {
-		return feather_color;
+	public String getfeatherColor() {
+		return featherColor;
 	}
-	public void setFeather_color(String feather_color) {
-		this.feather_color = feather_color;
+	public void setFeather_color(String featherColor) {
+		this.featherColor = featherColor;
 	}
 	public float getWidth() {
 		return width;
@@ -20,13 +20,13 @@ public class Cat extends Animal{
 	public void setWidth(float width) {
 		this.width = width;
 	}
-	public Cat(String name, int age, String gender, String feather_color, float width) {
+	public Cat(String name, int age, String gender, String featherColor, float width) {
 		super(name, age, gender);
-		this.feather_color = feather_color;
+		this.featherColor = featherColor;
 		this.width = width;
 	}
-	public void display_Cat() {
-		System.out.println("Tên: " +getName()+ " - Tuổi: " +getAge()+ " - Giới tính: "+getGender()+ " - Màu lông: " +feather_color +" - Chiều cao: "+width);
+	public void displayCat() {
+		System.out.println("Tên: " +getName()+ " - Tuổi: " +getAge()+ " - Giới tính: "+getGender()+ " - Màu lông: " +featherColor +" - Chiều cao: "+width);
 	
 	}
 
