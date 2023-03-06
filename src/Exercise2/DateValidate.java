@@ -26,8 +26,8 @@ public class DateValidate {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("He thong chi chap nhan format DD/MM/YYYY");
-		System.out.println("Input ngay can kiem tra:");
+		System.out.println("Hệ thống chỉ chấp nhận format DD/MM/YYYY");
+		System.out.println("Nhập ngày cần kiểm tra:");
 		String inputDate = sc.nextLine();
 		if (isDateValid(inputDate)) {
 			String[] parts = inputDate.split("/");
