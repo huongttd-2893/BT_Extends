@@ -11,7 +11,7 @@ public class Xe {
 
 		System.out.println("Số Xe: " + getSoXe() + " Nhà sản xuất: " + getNhaSanXuat() + " Năm sản xuất: "
 				+ getNamSanXuat() + " Màu xe: " + getMauXe());
-		//chuXe.hienThiThongTinChuXe();
+		this.chuXe.hienThiThongTinChuXe();
 
 	}
 
@@ -21,7 +21,7 @@ public class Xe {
 		this.nhaSanXuat = nhaSanXuat;
 		this.namSanXuat = namSanXuat;
 		this.mauXe = mauXe;
-
+		this.chuXe = chuXe;
 	}
 
 	public int getSoXe() {

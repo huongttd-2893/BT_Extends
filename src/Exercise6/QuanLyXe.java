@@ -126,7 +126,7 @@ public class QuanLyXe {
 		Scanner sc = new Scanner(System.in);
 		quanLyXe.nhapThongTinCacXe(sc);
 		quanLyXe.timKiemTheoSoXe(sc);
-
+		
 	}
 
 }
