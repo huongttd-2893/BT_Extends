@@ -24,13 +24,14 @@ public class ThongTinHocSinh {
 			System.out.println("\n----Thông tin học sinh thứ " + (i + 1) + ": ");
 			arrL.get(i).thongTinHocSinh();
 		}
-
+		//Danh sách Học Sinh 20 tuổi
 		System.out.println("\n----Danh sách Học Sinh 20 tuổi ");
 		for (int i = 0; i < arrL.size(); i++) {
 			if (arrL.get(i).getHocSinh().getTuoi() == 20) {
 				arrL.get(i).thongTinHocSinh();
 			}
 		}
+		//Số Học sinh có tuổi là 23 và Quê ở Đà Nẵng
 		int dem = 0;
 		System.out.println("\n----Số Học sinh có tuổi là 23 và Quê ở Đà Nẵng ");
 		for (int i = 0; i < arrL.size(); i++) {
