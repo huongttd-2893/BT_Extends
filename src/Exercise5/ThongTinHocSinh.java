@@ -1,3 +1,4 @@
+
 package Exercise5;
 
 import java.util.ArrayList;
@@ -44,6 +45,6 @@ public class ThongTinHocSinh {
 		System.out.println("Tổng là: "+dem);
 
 
-	}
+	}}
 
-}
+
