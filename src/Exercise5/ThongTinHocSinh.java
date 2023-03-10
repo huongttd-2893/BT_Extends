@@ -9,7 +9,6 @@ public class ThongTinHocSinh {
 	public static void main(String[] args) {
 		ArrayList<School> arrL = new ArrayList<>();
 		int n;
-//		School hocSinhLop;
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Nhập số học sinh: ");
 		n = scanner.nextInt();
