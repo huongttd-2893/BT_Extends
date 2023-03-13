@@ -60,7 +60,7 @@ public class QuanLyXe {
 		return new XeTai(xe.getSoXe(), xe.getNhaSanXuat(), xe.getNamSanXuat(), xe.getMauXe(), xe.getChuXe(), trongTai);
 	}
 
-	// Tìm kiếm phương tiện giao thông theo số xe
+	// 2. Tìm kiếm phương tiện giao thông theo số xe
 	public void timKiemTheoSoXe(Scanner sc) {
 		System.out.print("Nhập số xe cần tìm kiếm:");
 		int soXeTK = sc.nextInt();
@@ -72,11 +72,11 @@ public class QuanLyXe {
 		}
 	}
 
-	// Tìm phương tiện giao thông của chủ xe có số cmnd tương ứng.
+	//3. Tìm phương tiện giao thông của chủ xe có số cmnd tương ứng.
 	public void timKiemChuXeTheoCMND(Scanner sc) {
-		System.out.print("Nhập Chủ xe cần tìm kiếm:");
+		System.out.print("Nhập Chủ xe cần tìm kiếm: ");
 		String chuXeTK = sc.nextLine();
-		System.out.print("Nhập Số CMND của chủ xe cần tìm:");
+		System.out.print("Nhập Số CMND của chủ xe cần tìm: ");
 		int soCMNDTK = sc.nextInt();
 		for (int i = 0; i < dsXe.size(); i++) {
 			int soCMND = dsXe.get(i).getChuXe().getCmnd();
@@ -85,12 +85,38 @@ public class QuanLyXe {
 				dsXe.get(i).hienThiThongTin();
 		}
 	}
+	//4. Xóa tất cả các phương tiện giao thông của một nhà sản xuất bất kỳ.
+	public boolean delete(String nsx) {
+        Xe nhaSanXuat = this.dsXe.stream().filter(t -> t.getNhaSanXuat().equals(nsx)).findFirst().orElse(null);
+        if (nhaSanXuat == null) {
+            return false;
+        }
+        this.dsXe.remove(nhaSanXuat);
+        return true;
+    }
+	//6. Sắp xếp các phương tiện giao thông theo số xe giảm dần
+//	public void sapXep() {
+//		
+//		for (int i = 0; i < dsXe.length - 1; i++) {
+//            for (int j = i + 1; j < dsXe.length; j++) {
+//                if (dsXe[i].getSoXe() > dsXe[j].getSoXe()) {
+//                    temp = dsXe[j];
+//                    dsXe[j] = dsXe[i];
+//                    dsXe[i] = temp;
+//                }
+//            }
+//        }
+//	}
+	
 	
 	public void nhapThongTinCacXe(Scanner sc) {
 		char select;
 		int choice = 0;
 		while (true) {
-			System.out.print("Mời lựa chọn nhập:");
+			System.out.println("----- Mời lựa chọn nhập:-----");
+			System.out.println("---1. Nhập thông tin xe ôTô");
+			System.out.println("---2. Nhập thông tin xe Máy");
+			System.out.println("---3. Nhập thông tin xe Tải");
 			choice = sc.nextInt();
 			sc.nextLine();
 			switch (choice) {

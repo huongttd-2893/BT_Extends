@@ -1,5 +1,7 @@
 package Exercise6;
 
+import java.time.Year;
+
 public class Xe {
 	private int soXe;
 	private String nhaSanXuat;
@@ -23,7 +25,16 @@ public class Xe {
 		this.mauXe = mauXe;
 		this.chuXe = chuXe;
 	}
-
+	
+	public boolean ValidateYear() {
+		int namHT = Year.now().getValue();
+		if (namSanXuat <= namHT && namSanXuat >= 2000) {
+			return true;
+		}
+		System.out.println("\t _Năm sản xuất phải nhỏ hơn hoặc bằng năm hiện hành và lớn hơn 2000");
+		return false;
+	}
+	
 	public int getSoXe() {
 		return soXe;
 	}
