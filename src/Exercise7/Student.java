@@ -3,17 +3,23 @@ package Exercise7;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import Exercise6.Car;
+import Exercise6.Vehicle;
 
 public class Student {
 	private String numberID;
 	private String name;
 	private String birthday;
-	private int year;
+	private static int year;
 	private float point;
 	private ArrayList<LearningResult> result = new ArrayList<LearningResult>();
 
-	public Student(String numberID, String name, String birthday, int year, float point, ArrayList<LearningResult> result) {
+	public Student(String numberID, String name, String birthday, int year, float point,
+			ArrayList<LearningResult> result) {
 		super();
 		this.numberID = numberID;
 		this.name = name;
@@ -35,24 +41,24 @@ public class Student {
 
 	}
 
-	
 	public void displayMediumScoreStudent() {
 		System.out.println("Điểm trung bình các môn học của " + name);
 		for (LearningResult results : result) {
-			System.out.println(" - " + results.getSemesterName()+ " là : " + results.getMediumScore());
+			System.out.println(" - " + results.getSemesterName() + " là : " + results.getMediumScore());
 		}
 	}
 
 	public static void GoodStudent8(List<Student> students) {
-		System.out.println("Danh sách sinh viên có điểm trung bình ở học kỳ gần nhất có điểm trung bình từ 8.0 trở lên là: ");
-		for (Student student: students) {
-			if (student.getResult().get(student.getResult().size()-1).getMediumScore() >= 8.0)
-			{
+		System.out.println(
+				"Danh sách sinh viên có điểm trung bình ở học kỳ gần nhất có điểm trung bình từ 8.0 trở lên là: ");
+		for (Student student : students) {
+			if (student.getResult().get(student.getResult().size() - 1).getMediumScore() >= 8.0) {
 				student.displaySVInfo();
 			}
 		}
 	}
-	//Hàm sắp xếp
+
+	// Hàm sắp xếp
 	public static void SortByYear(ArrayList<Student> st) {
 		Collections.sort(st, new Comparator<Student>() {
 			@Override
@@ -66,6 +72,25 @@ public class Student {
 			sv.displaySVInfo();
 		}
 	}
+	
+	//Hàm Thống kê số lượng Sinh viên theo năm học 
+	public static Map<Integer, Integer> CountStudentByYear(List<Student> student){
+		Map<Integer, Integer> studentCount = new HashMap<>();
+			studentCount.put(getYear(),getNumberOfStudent(student));
+		return studentCount;
+	}
+	
+	public static int getNumberOfStudent(List<Student> student) {
+		int count = 0;
+		for (Student st : student) {
+			if (st instanceof InserviceStudent || st instanceof RegularStudent) {
+				count++;
+			}
+		}
+		System.out.println("Số lượng: "+count);
+		return count;	
+	}
+
 	
 	public String getNumberID() {
 		return numberID;
@@ -91,7 +116,7 @@ public class Student {
 		this.birthday = birthday;
 	}
 
-	public int getYear() {
+	public static int getYear() {
 		return year;
 	}
 

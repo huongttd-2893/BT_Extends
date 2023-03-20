@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 public class ManagementResult {
 	
@@ -34,17 +35,19 @@ public class ManagementResult {
 		kqht3.add(kq5);
 		kqht3.add(kq6);
 		
+		ArrayList<LearningResult> kqht4 = new ArrayList<LearningResult>();
+		kqht4.add(new LearningResult("Học kỳ 1", 7));
+		
 		Student huong = new RegularStudent("1911505310","Hương","16/4/2000",2018,9,kqht1);
-		Student thao = new InserviceStudent("1911505311","Thảo","20/4/1998",2016,6,kqht2,"Đà Nẵng");
-		Student minh = new RegularStudent("1911505312","Minh","21/5/2000",2017,7,kqht3);
+		Student minh = new RegularStudent("1911505311","Minh","21/5/2000",2017,7,kqht3);
+		Student thao = new InserviceStudent("1911505312","Thảo","20/4/1998",2016,6,kqht2,"Đà Nẵng");
+		Student khoa = new InserviceStudent("1911505313","Khoa","03/5/1997",2019,6,kqht4,"Quảng Nam");
 		
 		ArrayList <Student> stList = new ArrayList<Student>();
 		stList.add(huong);
 		stList.add(minh);
 		stList.add(thao);
-		
-		huong.displaySVInfo();
-		thao.displaySVInfo();
+		stList.add(khoa);
 		
 		//Trả về thông tin sinh viên có phải là chính quy hay không?
 		System.out.print("\n");
@@ -65,7 +68,7 @@ public class ManagementResult {
 		//Lấy ra danh sách các sinh viên tại chức tại nơi liên kết đào tạo cho trước
 		System.out.print("\n");
 		System.out.println("Danh sách sinh viên tại chức tại nơi đào tạo cho trước: ");
-		InserviceStudent.getInserviceStudent(stList,"Đà Nẵng");
+		InserviceStudent.getInserviceStudent(stList,"Quảng Nam");
 		
 		//Lấy ra danh sách sinh viên có điểm trung bình ở học kỳ gần nhất (là học kỳ cuối cùng trong danh sách kết quả học tập của sinh viên) từ 8.0 trở lên
 		System.out.print("\n");
@@ -74,6 +77,13 @@ public class ManagementResult {
 		//Sắp xếp danh sách sinh viên tăng dần theo loại và giảm dần theo năm vào học
 		System.out.print("\n");
 		Student.SortByYear(stList);
+		
+		//Thống kê số lượng sinh viên theo năm vào học
+		System.out.print("\n");
+		System.out.println("Thống kê số lượng sinh viên: ");
+		Student.CountStudentByYear(stList);
+		
+		
 		
 	}
 }
