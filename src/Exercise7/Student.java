@@ -1,6 +1,8 @@
 package Exercise7;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Student {
@@ -9,9 +11,9 @@ public class Student {
 	private String birthday;
 	private int year;
 	private float point;
-	private List<LearningResult> result = new ArrayList<LearningResult>();
+	private ArrayList<LearningResult> result = new ArrayList<LearningResult>();
 
-	public Student(String numberID, String name, String birthday, int year, float point, List<LearningResult> result) {
+	public Student(String numberID, String name, String birthday, int year, float point, ArrayList<LearningResult> result) {
 		super();
 		this.numberID = numberID;
 		this.name = name;
@@ -21,7 +23,7 @@ public class Student {
 		this.result = result;
 	}
 
-	// hiển thị thông tin sinh viên
+	// Hiển thị thông tin sinh viên
 	public void displaySVInfo() {
 		System.out.println("Thông tin sinh viên");
 		System.out.println("\t Mã SV: " + getNumberID());
@@ -33,17 +35,7 @@ public class Student {
 
 	}
 
-	// hiển thị điểm trung bình sinh viên
-//	public float displayMediumScoreStudent() {
-//		float score = 0;
-//		for (LearningResult res : this.getResult()) {
-//			if (res.getMediumScore() > score) {
-//				score = res.getMediumScore();
-//			}
-//		}
-//		return score;
-//
-//	}
+	
 	public void displayMediumScoreStudent() {
 		System.out.println("Điểm trung bình các môn học của " + name);
 		for (LearningResult results : result) {
@@ -51,6 +43,30 @@ public class Student {
 		}
 	}
 
+	public static void GoodStudent8(List<Student> students) {
+		System.out.println("Danh sách sinh viên có điểm trung bình ở học kỳ gần nhất có điểm trung bình từ 8.0 trở lên là: ");
+		for (Student student: students) {
+			if (student.getResult().get(student.getResult().size()-1).getMediumScore() >= 8.0)
+			{
+				student.displaySVInfo();
+			}
+		}
+	}
+	//Hàm sắp xếp
+	public static void SortByYear(ArrayList<Student> st) {
+		Collections.sort(st, new Comparator<Student>() {
+			@Override
+			public int compare(Student st1, Student st2) {
+				return st1.getYear() > st2.getYear() ? -1 : 1;
+			}
+		});
+		System.out.println("Sắp xếp thứ tự sinh viên giảm dần theo năm học:");
+		for (int i = 0; i < st.size(); i++) {
+			Student sv = st.get(i);
+			sv.displaySVInfo();
+		}
+	}
+	
 	public String getNumberID() {
 		return numberID;
 	}
@@ -95,7 +111,7 @@ public class Student {
 		return result;
 	}
 
-	public void setResult(List<LearningResult> result) {
+	public void setResult(ArrayList<LearningResult> result) {
 		this.result = result;
 	}
 
